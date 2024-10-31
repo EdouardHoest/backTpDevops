@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="edoua"
+FROM node:18-alpine
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+COPY . .
+
+EXPOSE 5001
+RUN npm install
+
+CMD ["npm","start"]
+
+# docker build -t name --no-cache
